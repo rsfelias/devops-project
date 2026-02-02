@@ -15,6 +15,7 @@ logger = logging.getLogger(__name__)
 # ---------- Config ----------
 REQUIRED_ENV = "APP_MODE"
 
+
 @app.route("/")
 def index():
     logger.info("Root endpoint called")
@@ -23,9 +24,11 @@ def index():
         "status": "running"
     })
 
+
 @app.route("/health")
 def health():
     return jsonify({"status": "healthy"}), 200
+
 
 @app.route("/ready")
 def ready():
@@ -37,6 +40,7 @@ def ready():
         }), 500
 
     return jsonify({"status": "ready"}), 200
+
 
 @app.route("/load")
 def load():
